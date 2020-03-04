@@ -10,21 +10,15 @@
 <body>
     <h1>JavaScript</h1>
     <script>
-    result = (1 == 1)
-    if (result) {
-        document.write("참");
-    } else {
-        documnet.write("거짓");
-    }
+    list = new Array("one<br />", "two<br />", "three<br />");
+    // document.write(list);
+    document.write(list[0]);
+    document.write(list[2]);
     </script>
     <h1>php</h1>
     <?php
-        $result = (1==2);
-        if($result){
-            echo "참";
-        } else {
-            echo "거짓";
-        }
+        $list = array("one<br />", "two<br />", "three<br />");
+        echo $list[2];
     ?>
 </body>
 
