@@ -14,11 +14,13 @@
     // document.write(list);
     document.write(list[0]);
     document.write(list[2]);
+    document.write(list.length);
     </script>
     <h1>php</h1>
     <?php
         $list = array("one<br />", "two<br />", "three<br />");
         echo $list[2];
+        echo count($list);
     ?>
 </body>
 
