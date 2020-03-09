@@ -21,9 +21,16 @@
     </ul>
 
     <h1>php</h1>
-    <?php
-
+    <ul>
+        <?php
+        $list = array("노진구", "퉁퉁이", "비실이", "이슬이", "도라에몽");
+        $i = 0;
+        while($i < count($list)){
+            echo "<li>".$list[$i]."</li>";
+            $i = $i + 1;
+        }
     ?>
+    </ul>
 </body>
 
 </html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      li {
+        color: blue;
+      }
+      ul li {
+        font-size: 40px;
+      }
+      .em {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <ol id="target">
+      <li>html</li>
+      <li>css</li>
+      <li>javascript</li>
+    </ol>
+    <ul>
+      <li>안기웅</li>
+      <li>김유림</li>
+      <li>안지아</li>
+    </ul>
+    <input
+      type="button"
+      value="강조"
+      onclick="document.getElementById('target').className='em'"
+    />
+  </body>
+</html>
