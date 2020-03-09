@@ -31,7 +31,7 @@
         <?php
         if(empty($_GET['id']) == false){
           echo file_get_contents($_GET['id'].".txt");
-        }SSSS
+        }
         ?>
     </article>
 
