@@ -11,6 +11,8 @@
 <body id="target">
     <header>
         <h1>
+            <img src="http://localhost\img\1.png">
+
             <a href="http://localhost\index.php">JavaScript</a>
         </h1>
     </header>
