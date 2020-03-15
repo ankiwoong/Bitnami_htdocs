@@ -1,15 +1,10 @@
 #!C:\Users\ankiwoong\AppData\Local\Programs\Python\Python37\python.exe
 import cgi
 import os
+import view
+
 print("content-type: text/html; charset-utf-8\n")
 print()
-
-files = os.listdir('\\Bitnami\\wampstack-7.3.13-0\\apache2\\htdocs\\data')
-listStr = ''
-
-for item in files:
-    listStr = listStr + \
-        '<li><a href="index.py?id={name}">{name}</a></li>'.format(name=item)
 
 form = cgi.FieldStorage()
 if 'id' in form:
@@ -37,4 +32,4 @@ print('''<!doctype html>
   </form>
 </body>
 </html>
-'''.format(title=pageId, desc=description, listStr=listStr))
+'''.format(title=pageId, desc=description, listStr=view.getList()))
