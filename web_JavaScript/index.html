@@ -3,10 +3,14 @@
   <head>
     <title>WEB1 - Welcome</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="http://localhost/css/web_style.css">
+    <link rel="stylesheet" href="http://localhost/css/web_style_javascript.css">
   </head>
   <body>
     <h1><a href="http://localhost/web/index.html">WEB</h1></a>
+    <input type="button" value="night" onclick="document.querySelector('body').style.backgroundColor='black';
+    document.querySelector('body').style.color='white';">
+    <input type="button" value="day" onclick="document.querySelector('body').style.backgroundColor='white';
+    document.querySelector('body').style.color='black';">
     <div id="grid">
       <ol>
         <li><a href="http://localhost/web/1.html">HTML</li></a> 
