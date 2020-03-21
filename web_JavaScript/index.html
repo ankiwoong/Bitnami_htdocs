@@ -6,28 +6,32 @@
   <meta charset="utf-8" />
   <link rel="stylesheet" href="http://localhost/css/web_style_javascript.css">
   <script>
+    function LinksSetColor(color) {
+      var alist = document.querySelectorAll('a');
+      var i = 0;
+      while (i < alist.length) {
+        alist[i].style.color = color;
+        i = i + 1;
+      }
+    }
+    function BodySetColor(color) {
+      document.querySelector('body').style.color = color;
+    }
+    function BodySetBackgroundColor(color) {
+      document.querySelector('body').style.backgroundColor = color;
+    }
     function nightDayHandler(self) {
+      var target = document.querySelector('body');
       if (self.value === 'night') {
-        document.querySelector('body').style.backgroundColor = 'black';
-        document.querySelector('body').style.color = 'white';
+        BodySetBackgroundColor('black');
+        BodySetColor('white');
         self.value = 'day';
-        var alist = document.querySelectorAll('a');
-        var i = 0;
-        while (i < alist.length) {
-          alist[i].style.color = 'white';
-          i = i + 1;
-        }
+        LinksSetColor('white');
       } else {
-        document.querySelector('body').style.backgroundColor = 'white';
-        document.querySelector('body').style.color = 'black';
+        BodySetBackgroundColor('white');
+        BodySetColor('black');
         self.value = 'night';
-
-        var alist = document.querySelectorAll('a');
-        var i = 0;
-        while (i < alist.length) {
-          alist[i].style.color = 'black';
-          i = i + 1;
-        }
+        LinksSetColor('black');
       }
     }
   </script>
