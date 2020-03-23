@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>WEB</h1>
     <ol>
@@ -14,9 +16,12 @@
     </ol>
     <h2>
         <?php
-            echo $_GET['id'];
+        echo $_GET['id'];
         ?>
     </h2>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas voluptate voluptatem unde veritatis mollitia cumque doloremque perspiciatis harum ratione explicabo, asperiores a? Quae nam nostrum consequatur, quis sapiente harum illo.
+    <?php
+        echo file_get_contents("http://localhost/etc/".$_GET['id']);
+    ?>
 </body>
+
 </html>
