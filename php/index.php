@@ -8,19 +8,39 @@
 </head>
 
 <body>
-    <h1>WEB</h1>
+    <h1><a href="http://localhost/php/index.php">WEB</a></h1>
     <ol>
-        <li><a href="index.php?id=HTML">HTML</a></li>
-        <li><a href="index.php?id=CSS">CSS</a></li>
-        <li><a href="index.php?id=JavaScript">JavaScript</a></li>
+        <?php
+            $dir = 'C:\Bitnami\wampstack-7.3.15-2\apache2\htdocs\etc';
+            $list = scandir($dir);
+            $i = 0;
+                while($i < count($list)){
+                    if($list[$i] != '.') {
+                        if($list[$i] != '..') {
+                            echo "<li><a href=\"index.php?id=$list[$i]\">$list[$i]</a></li>\n";
+                        }
+                    }
+                    $i = $i + 1;
+                  }
+            // echo "<li>$list[0]</li>\n";
+            
+        ?>
     </ol>
     <h2>
         <?php
-        echo $_GET['id'];
+        if(isset($_GET['id'])) {
+            echo $_GET['id'];
+        } else {
+            echo "Welcome";
+        }
         ?>
     </h2>
     <?php
-        echo file_get_contents("http://localhost/etc/".$_GET['id']);
+        if(isset($_GET['id'])) {
+            echo file_get_contents("http://localhost/etc/".$_GET['id']);
+        } else {
+            echo "Hello, PHP";
+        }
     ?>
 </body>
 
