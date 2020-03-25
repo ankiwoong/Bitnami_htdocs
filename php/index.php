@@ -1,58 +1,58 @@
 <?php
-    function print_title() {
-        if(isset($_GET['id'])) {
-            echo $_GET['id'];
-        } else {
-            echo "Welcome";
-        } 
+function print_title(){
+  if(isset($_GET['id'])){
+    echo $_GET['id'];
+  } else {
+    echo "Welcome";
+  }
+}
+function print_description(){
+  if(isset($_GET['id'])){
+    echo file_get_contents("http://localhost/etc/".$_GET['id']);
+  } else {
+    echo "Hello, PHP";
+  }
+}
+function print_list(){
+  $dir = 'C:\Bitnami\wampstack-7.3.15-2\apache2\htdocs\etc';
+  // $dir = 'C:\Bitnami\wampstack-7.3.13-0\apache2\htdocs\etc';
+  $list = scandir($dir);
+  $i = 0;
+  while($i < count($list)){
+    if($list[$i] != '.') {
+      if($list[$i] != '..') {
+        echo "<li><a href=\"index.php?id=$list[$i]\">$list[$i]</a></li>\n";
+      }
     }
+    $i = $i + 1;
+  }
+}
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
+    <meta charset="utf-8">
     <title>
-        <?php
-    print_title();
-    ?>
+      <?php
+      print_title();
+      ?>
     </title>
-</head>
-
-<body>
-    <h1><a href="http://localhost/php/index.php">WEB</a></h1>
+  </head>
+  <body>
+    <h1><a href="index.php">WEB</a></h1>
     <ol>
-        <?php
-            // $dir = 'C:\Bitnami\wampstack-7.3.15-2\apache2\htdocs\etc';
-            $dir = 'C:\Bitnami\wampstack-7.3.13-0\apache2\htdocs\etc';
-            $list = scandir($dir);
-            $i = 0;
-                while($i < count($list)){
-                    if($list[$i] != '.') {
-                        if($list[$i] != '..') {
-                            echo "<li><a href=\"index.php?id=$list[$i]\">$list[$i]</a></li>\n";
-                        }
-                    }
-                    $i = $i + 1;
-                  }
-            // echo "<li>$list[0]</li>\n";
-            
-        ?>
+      <?php
+      print_list();
+      ?>
     </ol>
+    <a href="create.php">create</a>
     <h2>
-        <?php
-        print_title();
-        ?>
+      <?php
+      print_title();
+      ?>
     </h2>
     <?php
-        if(isset($_GET['id'])) {
-            echo file_get_contents("http://localhost/etc/".$_GET['id']);
-        } else {
-            echo "Hello, PHP";
-        }
-    ?>
-</body>
-
+    print_description();
+     ?>
+  </body>
 </html>
