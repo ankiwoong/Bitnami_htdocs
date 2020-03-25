@@ -11,7 +11,8 @@
     <h1><a href="http://localhost/php/index.php">WEB</a></h1>
     <ol>
         <?php
-            $dir = 'C:\Bitnami\wampstack-7.3.15-2\apache2\htdocs\etc';
+            // $dir = 'C:\Bitnami\wampstack-7.3.15-2\apache2\htdocs\etc';
+            $dir = 'C:\Bitnami\wampstack-7.3.13-0\apache2\htdocs\etc';
             $list = scandir($dir);
             $i = 0;
                 while($i < count($list)){
