@@ -1,10 +1,24 @@
+<?php
+    function print_title() {
+        if(isset($_GET['id'])) {
+            echo $_GET['id'];
+        } else {
+            echo "Welcome";
+        } 
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>
+        <?php
+    print_title();
+    ?>
+    </title>
 </head>
 
 <body>
@@ -29,11 +43,7 @@
     </ol>
     <h2>
         <?php
-        if(isset($_GET['id'])) {
-            echo $_GET['id'];
-        } else {
-            echo "Welcome";
-        }
+        print_title();
         ?>
     </h2>
     <?php
