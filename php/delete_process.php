@@ -1,4 +1,4 @@
 <?php
-    unlink('../etc/'.$_POST['id']);
+    unlink('../etc/'.basename($_POST['id']));
     header('Location: ../php/index.php');
 ?>

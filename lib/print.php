@@ -8,7 +8,8 @@ function print_title(){
 }
 function print_description(){
   if(isset($_GET['id'])){
-    echo htmlspecialchars(file_get_contents("../etc/".$_GET['id']));
+    $basename = basename($_GET['id']);
+    echo htmlspecialchars(file_get_contents("../etc/".$basename));
   } else {
     echo "Hello, PHP";
   }
