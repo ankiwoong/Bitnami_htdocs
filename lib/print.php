@@ -22,6 +22,7 @@ function print_list(){
         echo "<li><a href=\"index.php?id=$list[$i]\">$list[$i]</a></li>\n";
       }
     }
+    
     $i = $i + 1;
   }
 }
