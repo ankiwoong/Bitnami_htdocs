@@ -1,7 +1,11 @@
 <?php
+  $conn = mysqli_connect("localhost:3307", "root", "1q2w3e4r5t");
+  mysqli_select_db($conn, "opentutorials");
+  $result = mysqli_query($conn, "SELECT * FROM topic");
+?>
+<?php
   require_once('../lib/print.php');
   require_once('../view/top.php');
-
 ?>
 <a href="create.php">create</a>
 <?php if(isset($_GET['id'])) { ?>
