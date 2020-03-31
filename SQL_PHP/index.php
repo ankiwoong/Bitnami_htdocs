@@ -44,7 +44,8 @@
                 $result = mysqli_query($conn, $sql);
                 $row = mysqli_fetch_assoc($result);
                 echo '<h2>'.$row['title'].'</h2>';
-                echo $row['description'];
+                echo '<p>'.$row['author'].'</p>';
+                echo '<p>'.$row['description'].'</p>';                
             }
         ?>
     </article>

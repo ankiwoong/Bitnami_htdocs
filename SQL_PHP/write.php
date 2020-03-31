@@ -46,13 +46,23 @@
                 작성자 : <input type="text" name="author">
             </p>
             <p>
-                본문 : <textarea name="description"></textarea>
+                본문 : <textarea name="description" id="description"></textarea>
             </p>
-            <input type="submit">
+            <input type="hidden" role="uploadcare-uploader" />
+            <input type="submit" name="name" value="submit">
         </form>
     </article>
-
-    <script src="../js/script.js"></script>
+    <script>
+    UPLOADCARE_PUBLIC_KEY = 'b672b6f12f41ce995ef3';
+    </script>
+    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+    <script>
+    var singleWidget = uploadcare.SingleWidget('[role=uploadcare-uploader]');
+    singleWidget.onUploadComplete(function(info) {
+        document.getElementById('description').value = document.getElementById('description').value +
+            '<img src="' + info.cdnUrl + '">';
+    })
+    </script>
 </body>
 
 </html>
