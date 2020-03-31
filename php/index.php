@@ -1,18 +1,4 @@
 <?php
-  $conn = mysqli_connect("localhost:3306", "root", "1q2w3e4r5t");
-  mysqli_select_db($conn, "opentutorials");
-  $result = mysqli_query($conn, "SELECT * FROM topic");
-  $row = mysqli_fetch_assoc($result);
-  echo $row['id'];
-  echo $row['title'];
-  
-  echo "<br />";
-
-  $row = mysqli_fetch_assoc($result);
-  echo $row['id'];
-  echo $row['title'];
-?>
-<?php
   require_once('../lib/print.php');
   require_once('../view/top.php');
 ?>
