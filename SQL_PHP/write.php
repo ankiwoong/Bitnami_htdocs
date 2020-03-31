@@ -38,15 +38,18 @@
     </div>
 
     <article>
-        <?php
-            if(empty($_GET['id']) === false ) {
-                $sql = 'SELECT * FROM topic WHERE id='.$_GET['id'];
-                $result = mysqli_query($conn, $sql);
-                $row = mysqli_fetch_assoc($result);
-                echo '<h2>'.$row['title'].'</h2>';
-                echo $row['description'];
-            }
-        ?>
+        <form action="http://localhost/sql_php/process.php" method="post">
+            <p>
+                제목 : <input type="text" name="title">
+            </p>
+            <p>
+                작성자 : <input type="text" name="author">
+            </p>
+            <p>
+                본문 : <textarea name="description"></textarea>
+            </p>
+            <input type="submit">
+        </form>
     </article>
 
     <script src="../js/script.js"></script>
