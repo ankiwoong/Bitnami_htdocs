@@ -17,14 +17,13 @@
 </head>
 
 <body>
-    <?php
-        $password = $_GET["password"];
-        if($password == "1111"){
-            echo "안녕하세요. 주인님.";
-        } else {
-            echo "뉘신지?";
-        }
-    ?>
+  <?php
+  if($result->num_rows == "0"){
+    echo "뉘신지?";
+  } else {
+    echo "안녕하세요. 주인님";
+  }
+  ?>
 </body>
 
 </html>
