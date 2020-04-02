@@ -1,6 +1,6 @@
 <?php
-  $conn = mysqli_connect("localhost:3306", "root", "1q2w3e4r5t");
-  mysqli_select_db($conn, "opentutorials");
+  require("../lib/db.php");
+  $conn = db_init();
   $result = mysqli_query($conn, "SELECT * FROM topic");
 ?>
 <!DOCTYPE html>
