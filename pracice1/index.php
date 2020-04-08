@@ -8,12 +8,48 @@
 <!-- html 시작 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WEB Application Class Summary</title>
+    <style>
+    body {
+        margin: 0;
+    }
+
+    body.black {
+        background-color: black;
+        color: white;
+    }
+
+    header {
+        border-bottom: 1px solid grey;
+        padding-left: 30px;
+    }
+
+    nav {
+        border-right: 1px solid grey;
+        width: 200px;
+        height: 500px;
+        float: left;
+    }
+
+    nav ol {
+        margin: 0;
+        padding: 20px;
+        list-style: none;
+    }
+
+    #content {
+        padding-left: 20px;
+        float: left;
+        width: 700px;
+    }
+    </style>
 </head>
-<body>
+
+<body id="body">
     <!-- 제목 영역 -->
     <header>
         <h1>생활코딩 JavaScript</h1>
@@ -35,19 +71,25 @@
     </nav>
 
     <!-- 본문 영역 -->
-    <article>
-        <?php
+    <div id="content">
+        <article>
+            <?php
             $id = $_GET['id'];
             $sql = "SELECT * FROM topic WHERE id=".$id;
             $sql = "SELECT topic.id, topic.title, topic.description, user.name, topic.created FROM `topic` LEFT JOIN user ON topic.author = user.id WHERE topic.id=".$id;
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($result);
         ?>
-        <!-- 함축적인 표현이 있음 -->
-        <h2><?=htmlspecialchars($row['title'])?></h2>
-        <!-- | 기호를 사용하여 연결 할 수 있음 -->
-        <div><?=htmlspecialchars($row['created'])?> | <?=htmlspecialchars($row['name'])?></div>
-        <div><?=htmlspecialchars($row['description'])?></div>
-    </article>
+            <!-- 함축적인 표현이 있음 -->
+            <h2><?=htmlspecialchars($row['title'])?></h2>
+            <!-- | 기호를 사용하여 연결 할 수 있음 -->
+            <div><?=htmlspecialchars($row['created'])?> | <?=htmlspecialchars($row['name'])?></div>
+            <div><?=htmlspecialchars($row['description'])?></div>
+        </article>
+        <!-- 자바스크립트 구현 버튼 -->
+        <input type="button" name="name" value="White" onclick="document.getElementByid('body').className=''">
+        <input type="button" name="name" value="Black" onclick="document.getElementByid('body').className='black'">
+    </div>
 </body>
+
 </html>
