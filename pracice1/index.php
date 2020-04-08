@@ -1,5 +1,6 @@
 <!-- SQL DB 접속 영역 -->
 <?php
+    // 포트는 생략해도 좋음
     $conn = mysqli_connect('localhost:3306', 'root', '1q2w3e4r5t');
     mysqli_select_db($conn, 'opentutorials2');
 ?>
@@ -10,20 +11,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>WEB Application Class Summary</title>
 </head>
 <body>
-    <!-- 제목영역 -->
+    <!-- 제목 영역 -->
     <header>
         <h1>생활코딩 JavaScript</h1>
     </header>
 
     <!-- 네비게이션 영역 -->
+    <!-- 글 목록이 네비게이션 역활을 함 -->
     <nav>
         <ol>
             <?php
                 $sql = "SELECT * FROM `topic`";
                 $result = mysqli_query($conn, $sql);
+                // id 가 변화함에 따라 불러오는 값이 달라짐
                 while($row = mysqli_fetch_assoc($result)){
                     echo '<li><a href="index.php?id='.$row['id'].'">'.htmlspecialchars($row['title']).'</a></li>';
                 }
@@ -40,7 +43,9 @@
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($result);
         ?>
+        <!-- 함축적인 표현이 있음 -->
         <h2><?=htmlspecialchars($row['title'])?></h2>
+        <!-- | 기호를 사용하여 연결 할 수 있음 -->
         <div><?=htmlspecialchars($row['created'])?> | <?=htmlspecialchars($row['name'])?></div>
         <div><?=htmlspecialchars($row['description'])?></div>
     </article>
