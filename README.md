@@ -8,4 +8,4 @@
 | WEB2 - JavaScript | https://opentutorials.org/course/3085 | 수강완료 |
 | WEB2 - Python | https://opentutorials.org/course/3256 | 수강완료 |
 | WEB2 - PHP | https://opentutorials.org/course/3130 | 수강완료 |
-| 웹 애플리케이션 만들기 | https://opentutorials.org/course/1688 | 수강중 |
+| 웹 애플리케이션 만들기 | https://opentutorials.org/course/1688 | 수강완료 |
