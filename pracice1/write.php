@@ -53,7 +53,6 @@
 <body id="body">
     <!-- 제목 영역 -->
     <header>
-        <!-- 메인화면 이동 -->
         <h1><a href="http://localhost/pracice1/index.php">생활코딩 JavaScript</h1></a>
     </header>
 
@@ -62,14 +61,10 @@
     <nav>
         <ol>
             <?php
-                // Topic 테이블의 모든 컬럼 조회
                 $sql = "SELECT * FROM `topic`";
-                // mysqli_query : mysqli_connect 를 통해 연결된 객체를 이용하여 MySQL 쿼리를 실행
                 $result = mysqli_query($conn, $sql);
                 // id 가 변화함에 따라 불러오는 값이 달라짐
-                 // mysqli_fetch_assoc : 필드명(열이름, 키값)을 통해 데이터를 호출
                 while($row = mysqli_fetch_assoc($result)){
-                    // htmlspecialchars : 특정한 특수 문자를 HTML 엔티티로 변환
                     echo '<li><a href="index.php?id='.$row['id'].'">'.htmlspecialchars($row['title']).'</a></li>';
                 }
             ?>
@@ -79,35 +74,30 @@
     <!-- 본문 영역 -->
     <div id="content">
         <article>
-            <?php
-                if(empty($_GET['id'])){
-                    echo "Welcome";
-                } else {
-                    // mysqli_real_escape_string : php에서 제공하는 함수로 MYSQL과 커넥션을할때 String을 Escape한 상태로 만들어준다
-                    $id = mysqli_real_escape_string($conn, $_GET['id']);
-                    $sql = "SELECT topic.id, topic.title, topic.description, user.name, topic.created FROM `topic` LEFT JOIN user ON topic.author = user.id WHERE topic.id=".$id;
-                    // mysqli_query : mysqli_connect 를 통해 연결된 객체를 이용하여 MySQL 쿼리를 실행
-                    $result = mysqli_query($conn, $sql);
-                    // mysqli_fetch_assoc : 필드명(열이름, 키값)을 통해 데이터를 호출
-                    $row = mysqli_fetch_assoc($result);
-                ?>
-                    <!-- HTML CODE 이므로 HTML CODE 처리를 한다. -->
-                    <!-- 제목 -->
-                    <h2><?=htmlspecialchars($row['title'])?></h2>
-                    <!-- | 기호를 사용하여 작성일자 | 작성자 표현 -->
-                    <!-- htmlspecialchars : 특정한 특수 문자를 HTML 엔티티로 변환 -->
-                    <div><?=htmlspecialchars($row['created'])?> | <?=htmlspecialchars($row['name'])?></div>
-                    <!-- 내용 -->
-                    <div><?=htmlspecialchars($row['description'])?></div>
-            <?php
-                }
-            ?>          
+            <!-- 사용자가 입력한 정보를 POST 방식으로 process.php에서 처리 -->
+            <form action="http://localhost/pracice1/process.php" method="post">
+                <p>
+                    <!-- for에 input에 id를 주면 글씨를 클릭하면 해당 폼으로 이동한다 -->
+                    <label for="title">제목 : </label>
+                    <input id="title" type="text" name="title">
+                </p>
+                <p>
+                    <label for="author">저자 : </label>
+                    <input id="author" type="text" name="author" value="">
+                </p>
+                <p>
+                    <label for="description">본문 : </label>
+                    <textarea id="description" name="description" cols="30" rows="10"></textarea>            
+                </p>
+                <p>
+                    <input type="submit" value="전송">
+                </p>
+            </form>
         </article>
         <!-- 자바스크립트 구현 부분-->
         <!-- 버튼을 클릭하면 색상 변하는 코드 구현 -->
         <input type="button" name="name" value="White" onclick="document.getElementById('body').className='white'">
         <input type="button" name="name" value="Black" onclick="document.getElementById('body').className='black'">
-        <!-- 사용자가 입력할 수 있게 생성 -->
         <a href="http://localhost/pracice1/write.php">쓰기</a>
     </div>
 </body>
