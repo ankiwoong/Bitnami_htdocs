@@ -1,8 +1,6 @@
 <!-- SQL DB 접속 영역 -->
 <?php
-    // 포트는 생략해도 좋음
-    $conn = mysqli_connect('localhost:3306', 'root', '1q2w3e4r5t');
-    mysqli_select_db($conn, 'opentutorials2');
+    require_once('./conn.php');
 ?>
 
 <!-- html 시작 -->
@@ -13,41 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WEB Application Class Summary</title>
-    <style type="text/css">
-    body {
-        margin: 0;
-    }
-
-    /* body class 값이 black 인 경우 배경 검정 / 글씨 흰색으로 바꿈*/
-    body.black {
-        background-color: black;
-        color: white;
-    }
-
-    header {
-        border-bottom: 1px solid grey;
-        padding-left: 30px;
-    }
-
-    nav {
-        border-right: 1px solid grey;
-        width: 200px;
-        height: 500px;
-        float: left;
-    }
-
-    nav ol {
-        margin: 0;
-        padding: 20px;
-        list-style: none;
-    }
-
-    #content {
-        padding-left: 20px;
-        float: left;
-        width: 700px;
-    }
-    </style>
+    <link rel="stylesheet" href="http://localhost/pracice1/style.css" media="screen" title="no title" charset="utf-8">
 </head>
 
 <body id="body">
@@ -91,17 +55,17 @@
                     // mysqli_fetch_assoc : 필드명(열이름, 키값)을 통해 데이터를 호출
                     $row = mysqli_fetch_assoc($result);
                 ?>
-                    <!-- HTML CODE 이므로 HTML CODE 처리를 한다. -->
-                    <!-- 제목 -->
-                    <h2><?=htmlspecialchars($row['title'])?></h2>
-                    <!-- | 기호를 사용하여 작성일자 | 작성자 표현 -->
-                    <!-- htmlspecialchars : 특정한 특수 문자를 HTML 엔티티로 변환 -->
-                    <div><?=htmlspecialchars($row['created'])?> | <?=htmlspecialchars($row['name'])?></div>
-                    <!-- 내용 -->
-                    <div><?=htmlspecialchars($row['description'])?></div>
+            <!-- HTML CODE 이므로 HTML CODE 처리를 한다. -->
+            <!-- 제목 -->
+            <h2><?=htmlspecialchars($row['title'])?></h2>
+            <!-- | 기호를 사용하여 작성일자 | 작성자 표현 -->
+            <!-- htmlspecialchars : 특정한 특수 문자를 HTML 엔티티로 변환 -->
+            <div><?=htmlspecialchars($row['created'])?> | <?=htmlspecialchars($row['name'])?></div>
+            <!-- 내용 -->
+            <div><?=htmlspecialchars($row['description'])?></div>
             <?php
                 }
-            ?>          
+            ?>
         </article>
         <!-- 자바스크립트 구현 부분-->
         <!-- 버튼을 클릭하면 색상 변하는 코드 구현 -->
@@ -111,4 +75,5 @@
         <a href="http://localhost/pracice1/write.php">쓰기</a>
     </div>
 </body>
+
 </html>

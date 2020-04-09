@@ -1,8 +1,6 @@
 <!-- SQL DB 접속 영역 -->
 <?php
-    // 포트는 생략해도 좋음
-    $conn = mysqli_connect('localhost:3306', 'root', '1q2w3e4r5t');
-    mysqli_select_db($conn, 'opentutorials2');
+    require_once('./conn.php');
 ?>
 
 <!-- html 시작 -->
@@ -13,41 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WEB Application Class Summary</title>
-    <style type="text/css">
-    body {
-        margin: 0;
-    }
-
-    /* body class 값이 black 인 경우 배경 검정 / 글씨 흰색으로 바꿈*/
-    body.black {
-        background-color: black;
-        color: white;
-    }
-
-    header {
-        border-bottom: 1px solid grey;
-        padding-left: 30px;
-    }
-
-    nav {
-        border-right: 1px solid grey;
-        width: 200px;
-        height: 500px;
-        float: left;
-    }
-
-    nav ol {
-        margin: 0;
-        padding: 20px;
-        list-style: none;
-    }
-
-    #content {
-        padding-left: 20px;
-        float: left;
-        width: 700px;
-    }
-    </style>
+    <link rel="stylesheet" href="http://localhost/pracice1/style.css" media="screen" title="no title" charset="utf-8">
 </head>
 
 <body id="body">
@@ -83,11 +47,15 @@
                 </p>
                 <p>
                     <label for="author">저자 : </label>
-                    <input id="author" type="text" name="author" value="">
+                    <input id="author" type="text" name="author">
+                </p>
+                <p>
+                    <label for="password">암호 : </label>
+                    <input id="password" type="password" name="password">
                 </p>
                 <p>
                     <label for="description">본문 : </label>
-                    <textarea id="description" name="description" cols="30" rows="10"></textarea>            
+                    <textarea id="description" name="description" cols="30" rows="10"></textarea>
                 </p>
                 <p>
                     <input type="submit" value="전송">
@@ -101,4 +69,5 @@
         <a href="http://localhost/pracice1/write.php">쓰기</a>
     </div>
 </body>
+
 </html>
