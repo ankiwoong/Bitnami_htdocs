@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #stage {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .comment {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 400px;
+        }
+
+        .comment .name {
+            font-size: 20px;
+            color: red;
+        }
+
+        .trigger {
+            position: fixed;
+            left: 50%;
+            bottom: 100px;
+            transform: translateX(-50%);
+            padding: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h1>ajax</h1>
+
+<button class="trigger">추가</button>
+
+
+<section id="stage">
+
+    <div class="comment">
+        <div class="name">kindtiger</div>
+        <p> 정말 멋진 ajax 강의였습니다! </p>
+        <button class="remove" data-name="remove">remove</button>
+    </div>
+
+</section>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+
+
+
+    // ajax
+
+
+
+    const add = document.querySelector('.trigger');
+    // const remove = document.querySelector('.remove');
+    // const stage = document.querySelector('#stage');
+
+
+    // ajax
+
+
+    function clickFunc() {
+
+        $.ajax({
+            type:'post',
+            url:"../data/comment.html",
+            data:37,
+            dataType:'html',
+            success : (response)=>{
+                stage.insertAdjacentHTML('afterbegin',response);
+
+            },
+            error: (err)=>{
+                alert('login plz');
+
+
+            }
+
+        });
+
+
+    }
+
+
+    add.addEventListener('click', clickFunc);
+
+
+
+</script>
+</body>
+</html>
